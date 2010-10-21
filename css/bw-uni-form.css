@@ -1,0 +1,165 @@
+/* ------------------------------------------------------------------------------
+
+   Copyright (c) 2010, Dragan Babic
+   
+   Permission is hereby granted, free of charge, to any person
+   obtaining a copy of this software and associated documentation
+   files (the "Software"), to deal in the Software without
+   restriction, including without limitation the rights to use,
+   copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following
+   conditions:
+   
+   The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+   
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+   OTHER DEALINGS IN THE SOFTWARE.
+
+   ------------------------------------------------------------------------------ */
+/* #############################   GENERALS   ################################### */
+/* ------------------------------------------------------------------------------ */
+
+form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
+  
+  /* Some generals and more resets */
+  form fieldset{ border: none; margin: 0; padding: 0; }
+    form fieldset legend{ margin: 0; padding: 0; }
+    
+    /* This are the main units that contain form elements */
+    form .row,
+    form .buttonHolder{ margin: 0; padding: 0; clear: both; }
+    
+    /* Clear all floats */ 
+    form:after,
+      form .buttonHolder:after, 
+      form .row:after, 
+        form .row .multiField:after,
+          form .inlineLabel:after{ content: "."; display: block; height: 0; line-height: 0; font-size: 0; clear: both; min-height: 0; visibility: hidden; }
+      
+      form label,
+      form button{ cursor: pointer; }
+        /* Move these to your IE6/7 specific stylesheet if possible */
+        form, form fieldset, form .row, form .formHint, form .buttonHolder, form .row ul{ zoom:1; }
+
+/* ------------------------------------------------------------------------------ */
+/* ##########################   DEFAULT LAYOUT   ################################ */
+/* ------------------------------------------------------------------------------ */
+/*       Styles for form controls where labels are above the input elements       */
+/* ------------------------------------------------------------------------------ */
+
+      form label,
+      form .label{ display: block; float: none; margin: 0 0 .5em 0; padding: 0; line-height: 100%; width: auto; }
+      
+      /* Float the input elements */
+      form .textInput,
+      form .fileUpload,
+      form .selectInput,
+      form select,
+      form textarea{ float: left; width: 53%; margin: 0; }
+      
+      /* Postition the hints */
+      form .formhelp{ float: right; width: 43%; margin: 0; clear: none; }
+      
+      /* Position the elements inside combo boxes (multiple inputs/selects/checkboxes/radio buttons per unit) */
+      form ul{ float: left; width: 53%; margin: 0; padding: 0; }
+        form ul li{ margin: 0 0 .5em 0; list-style: none; }
+          form ul li label{ margin: 0; float: none; display: block; overflow: visible; }
+        /* Alternate layout */
+        form ul.alternate li{ float: left; width: 30%; margin-right: 3%; }
+          form ul.alternate li label{ float: none; display: block; width: 98%; }
+            form ul .textInput,
+            form ul .selectInput,
+            form ul select,
+            form ul.alternate .textInput,
+            form ul.alternate .selectInput,
+            form ul.alternate select{ width: 98%; margin-top: .5em; display: block; float: none; }
+            
+        /* Required fields asterisk styling */
+        form label em,
+        form .label em{ float: left; width: 16px; height:16px; margin: 0 0 0 -1em; text-indent:-9999px; background-image:url(../../iconsets/tango/small/emblem-important.png) }
+
+/* ------------------------------------------------------------------------------ */
+/* #########################   ALTERNATE LAYOUT   ############################### */
+/* ------------------------------------------------------------------------------ */
+/*    Styles for form controls where labels are in line with the input elements   */
+/*    Set the class of the parent (preferably to a fieldset) to .inlineLabels     */
+/* ------------------------------------------------------------------------------ */
+
+      form .inlineLabels label,
+      form .inlineLabels .label{ float: left; margin: .3em 2% 0 0; padding: 0; line-height: 1; position: relative; width: 32%; }
+      
+      /* Float the input elements */
+      form .inlineLabels .textInput,
+      form .inlineLabels .fileUpload,
+      form .inlineLabels .selectInput,
+      form .inlineLabels select,
+      form .inlineLabels textarea{ float: left; width: 64%; }
+
+    /* Postition the hints */
+    form .inlineLabels .formhelp{ clear: both; float: none; width: auto; margin-left: 34%; position: static; }
+    
+    /* Position the elements inside combo boxes (multiple inputs/selects/checkboxes/radio buttons per unit) */
+    form .inlineLabels ul{ float: left; width: 66%; }
+      form .inlineLabels ul li{ margin: .5em 0; }
+        form .inlineLabels ul li label{ float: none; display: block; width: 100%; }
+      /* Alternate layout */
+      form .inlineLabels ul.alternate li{ margin-right: 3%; margin-top: .25em; }
+          form .inlineLabels ul li label .textInput,
+          form .inlineLabels ul li label textarea,
+          form .inlineLabels ul li label select{ float: none; display: block; width: 98%;  }
+    
+    /* Required fields asterisk styling */
+    form .inlineLabels label em,
+    form .inlineLabels .label em{ display: block; float: none; margin: 0; position: absolute; right: 0; }
+
+/* ----------------------------------------------------------------------------- */
+/* ########################### Additional Stuff ################################ */
+/* ----------------------------------------------------------------------------- */
+
+  /* Generals */
+    form legend{ color: inherit; }
+    
+      form .secondaryAction{ float: left; margin:0; }
+      form .primaryAction{ float: right; margin:0; }
+      
+      /* .inlineLabel is used for inputs within labels - checkboxes and radio buttons */
+      form .inlineLabel input,
+      form .inlineLabels .inlineLabel input,
+      form .blockLabels .inlineLabel input,
+      /* class .inlineLabel is depreciated */
+      form label input{ float: none; display: inline; margin: 0; padding: 0; border: none; }
+            
+      form .buttonHolder .inlineLabel,
+      form .buttonHolder label{ float: left; margin: .5em 0 0 0; width: auto; max-width: 60%; text-align: left; }
+      
+      /* When you don't want to use a label */
+      form .inlineLabels .noLabel ul{ margin-left: 34%; /* Match to width of label + gap to field */ }
+      
+      /* Classes for control of the widths of the fields */
+      form .small { width: 30% !important; }
+      form .medium{ width: 45% !important; }
+      form .large {  } /* Large is default and should match the value you set for .textInput, textarea or select */
+      form .auto  { width: auto !important; }
+      form .small,
+      form .medium,
+      form .auto{ margin-right: 4px; }
+      
+      form .formlabel,
+      form .forminput { font-weight:inherit; float:none; width:auto; margin:0; padding:0; text-align:inherit; display:inline; }
+
+/* Columns */
+form .col{ float: left; }
+form .col{ width: 50%; }
+
+/* IE6 fixes for the page */
+* html formform{ overflow: hidden; }
+	* html .header{ zoom: 1; overflow: hidden;}
+		* html .browse{ position: absolute; }
