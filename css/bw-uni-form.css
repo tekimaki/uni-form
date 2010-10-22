@@ -84,7 +84,7 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
             
         /* Required fields asterisk styling */
         form label em,
-        form .label em{ float: left; width: 16px; height:16px; margin: 0 0 0 -1em; text-indent:-9999px; background-image:url(../../iconsets/tango/small/emblem-important.png) }
+        form .label em{ float: left; width: 16px; height:16px; margin: 0 0 0 -1em; text-indent:-9999px; background-image:url(../../../config/iconsets/tango/small/emblem-important.png) }
 
 /* ------------------------------------------------------------------------------ */
 /* #########################   ALTERNATE LAYOUT   ############################### */
@@ -118,7 +118,7 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
     
     /* Required fields asterisk styling */
     form .inlineLabels label em,
-    form .inlineLabels .label em{ display: block; float: none; margin: 0; position: absolute; right: 0; }
+    form .inlineLabels .label em{ display: block; float: right; margin: 0; right: 0; }
 
 /* ----------------------------------------------------------------------------- */
 /* ########################### Additional Stuff ################################ */
