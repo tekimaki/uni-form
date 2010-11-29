@@ -94,7 +94,8 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
 /* ------------------------------------------------------------------------------ */
 
       form .inlineLabels label,
-      form .inlineLabels .label{ float: left; margin: .3em 2% 0 0; padding: 0; line-height: 1; position: relative; width: 32%; }
+      form .inlineLabels .label{ display:block; margin: .3em 0 0 0; position: relative; width: 205px;
+      /* float: left; padding: 0; line-height: 1; */ }
       
       /* Float the input elements */
       form .inlineLabels .textInput,
@@ -104,7 +105,7 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
       form .inlineLabels textarea{ float: left; width: 64%; }
 
     /* Postition the hints */
-    form .inlineLabels .formhelp{ clear: both; float: none; width: auto; margin-left: 34%; position: static; }
+    form .inlineLabels .formhelp{ clear: both; float: none; width: auto; margin: 0 0 5px 0; position: static; }
     
     /* Position the elements inside combo boxes (multiple inputs/selects/checkboxes/radio buttons per unit) */
     form .inlineLabels ul{ float:none; margin-left:34%; /*float: left; width: 66%;*/ }
@@ -118,7 +119,7 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
     
     /* Required fields asterisk styling */
     form .inlineLabels label em,
-    form .inlineLabels .label em{ display: block; float: right; margin: 0; right: 0; }
+    form .inlineLabels .label em { display: block; float: right; margin: 0; right: 0; }
 
 /* ----------------------------------------------------------------------------- */
 /* ########################### Additional Stuff ################################ */
@@ -152,9 +153,14 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
       form .medium,
       form .auto{ margin-right: 4px; }
       
+      form .inlineLabels .formlabel { width:205px; text-align:left; float:left; clear:left; }
+      form .inlineLabels .forminput { margin-left:225px; width:450px; }
+      form .inlineLabels .forminput .formlabel { float:none; }
+      form .inlineLabels .forminput .forminput { margin-left:0; }
+      /*
       form .formlabel,
       form .forminput { font-weight:inherit; float:none; width:auto; margin:0; padding:0; text-align:inherit; display:inline; }
-
+      */
 /* Columns */
 form .col{ float: left; }
 form .col{ width: 50%; }
