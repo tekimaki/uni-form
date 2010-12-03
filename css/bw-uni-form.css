@@ -102,7 +102,7 @@ form{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
       form .inlineLabels .fileUpload,
       form .inlineLabels .selectInput,
       form .inlineLabels select,
-      form .inlineLabels textarea{ float: left; width: 98%; }
+      form .inlineLabels textarea{ width: 98%; }
 
     /* Postition the hints */
     form .inlineLabels .formhelp{ clear: both; float: none; width: auto; margin: 0 0 5px 0; position: static; }
